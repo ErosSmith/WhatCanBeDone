@@ -22,30 +22,43 @@ def fib(*args):
 	else:
 		fib_dic = {}
 
-	num = args[0]
+	limit = args[0]
+
+	# print(fib_dic)
 
 	if fib_dic != {} and fib_dic['last_entry'] > 1:
 		big_key = fib_dic['last_entry']
 		second_key = big_key - 1
-		prev = fib_dic[second_key]
+		# print("last entry is " + str(fib_dic['last_entry'])+ ' num is ' + str(limit))
 		result = fib_dic[big_key]
-		i = num
+		prev = fib_dic[second_key]
+		i = big_key + 1
+		
 	else:
 		prev = -1
 		result = 1
 		total = 0
 		i = 0
+		fib_dic['last_entry'] = 0
+
+
+
+	
 
 	# print("prev is " + str(prev))
 	# print("result is " + str(result))
-	# print("i is " + str(result))
+	# print("i is " + str(i))
+	# print('limit is ' + str(limit))
 
 
-	while num >= i:
+	while limit >= i:
 		total = result + prev
 		prev = result
 		result = total
+		fib_dic[i] = total
+		# print('added ' +str(i)+' : ' +str(total)+' to dic')
 		i += 1
+	fib_dic['last_entry'] = limit
 	return result
 
 class cache :
