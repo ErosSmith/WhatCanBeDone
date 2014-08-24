@@ -17,15 +17,16 @@ class TestCollatz (TestCase) :
     # ----
 
     def test_basic (self) :
+    	limit = 10000
+    	print("limit is " + str(limit)) 
 
     	x = count(0)
     	arr = []
     	t1 = time.time() 
     	for num in x:
-    		if num == 40:
+    		if num == limit:
     			break
     		arr += [fib(num)]
-    	print(arr)
     	t2 = time.time()
     	print (t2 - t1)
 
@@ -35,10 +36,9 @@ class TestCollatz (TestCase) :
     	arr2 = []
     	t1 = time.time() 
     	for num in x:
-    		if num == 40:
+    		if num == limit:
     			break
     		arr2 += [fib2(num)]
-    	print(arr2)
     	t2 = time.time()
     	print (t2 - t1)
 
@@ -47,10 +47,9 @@ class TestCollatz (TestCase) :
     	arr3 = []
     	t1 = time.time() 
     	for num in x:
-    		if num == 40:
+    		if num == limit:
     			break
     		arr3 += [fib2(num)]
-    	print(arr3)
     	t2 = time.time()
     	print (t2 - t1)
 
@@ -60,6 +59,5 @@ class TestCollatz (TestCase) :
 
     	assert(True)
 
-print("wtf")
 
 main()
